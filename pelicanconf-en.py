@@ -6,6 +6,7 @@ TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_LANG = 'en'
 PATH = "content-en"
+OUTPUT_PATH = 'docs'
 THEME = "./themes/blue-penguin-dark-master-en"
 
 URL_PRE = 'en-'

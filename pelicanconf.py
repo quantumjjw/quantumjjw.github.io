@@ -3,6 +3,7 @@ SITENAME = 'Quantum JJW'
 SITEURL = ""
 
 PATH = "content"
+OUTPUT_PATH = 'docs'
 
 TIMEZONE = 'Asia/Shanghai'
 
