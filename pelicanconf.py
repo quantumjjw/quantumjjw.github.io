@@ -17,7 +17,6 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 SLUGIFY_SOURCE = 'basename'
-
 # Blogroll
 LINKS = (
     ("Pelican", "https://getpelican.com/"),

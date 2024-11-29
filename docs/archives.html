@@ -17,7 +17,14 @@
         <nav style="overflow: hidden;">
             <ul>
                 <li><a href="/">主页</a></li>
+
                             <li><a href="/category/xin-wen.html">新闻</a></li>
+                <li><a href="/pages/about.html">关于</a></li>
+                <li><a href="/pages/number.html">成员</a></li>
+
+                <li onclick="changeLanguage()" class="active">
+                    <a>中文/English</a>
+                </li>
             </ul>
         </nav>
         <div class="header_box" style="height: 50px">
@@ -49,4 +56,26 @@
         <div class="clear"></div>
     </div>
 </body>
+<script>
+    function changeLanguage() {
+    let oriURL = window.location.href;
+    if (oriURL.endsWith('/')) {
+        oriURL += 'index.html';
+    };
+    let pageName = oriURL.split('/').pop();
+
+    if (pageName == 'xin-wen.html') {
+        var targetUrl = oriURL.replace(pageName, 'news.html');
+    }
+    else if (pageName == 'news.html') {
+        var targetUrl = oriURL.replace(pageName, 'xin-wen.html');
+    }
+    else if(pageName.startsWith('en-')){
+        var targetUrl = oriURL.replace(pageName, pageName.slice(3));
+    } else {
+        var targetUrl = oriURL.replace(pageName, 'en-'+pageName);
+    };
+    window.location.href = targetUrl;
+}
+</script>
 </html>

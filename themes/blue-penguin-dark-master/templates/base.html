@@ -1,5 +1,5 @@
 {% macro ephemeral_nav_link(what, where, selected=False) -%}
-<li class="ephemeral{% if selected %} selected{% endif %}"><a href="{{ SITEURL }}/{{ where }}">{{what}}</a></li>
+
 {%- endmacro -%}
 
 <!DOCTYPE html>
@@ -66,14 +66,17 @@
                 {% if DISPLAY_HOME or DISPLAY_HOME is not defined %}
                 <li{% if output_file == "index.html" %} class="selected"{% endif %}><a href="{{ SITEURL }}/">主页</a></li>
                 {% endif %}
+
                 {% if DISPLAY_CATEGORIES_ON_MENU -%}
                     {% for cat, null in categories %}
-                            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                            <li{% if cat == category %} class="selected"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                     {% endfor %}
                 {% endif %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for p in pages %}
+                {% if p.slug != "intro" %}
                 <li{% if p == page %} class="selected"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                {% endif %}
                 {% endfor %}
                 {% endif %}
                 {% for title, link in MENUITEMS %}
@@ -82,6 +85,10 @@
                 {% for name, link, file in MENU_INTERNAL_PAGES %}
                 <li{% if output_file == file %} class="selected"{% endif %}><a href="{{ SITEURL }}/{{ link }}">{{ name }}</a></li>
                 {% endfor %}
+
+                <li onclick="changeLanguage()" class="active">
+                    <a>中文/English</a>
+                </li>
             </ul>
         </nav>
         {% endif %}
@@ -120,4 +127,26 @@
         <div class="clear"></div>
     </div>
 </body>
+<script>
+    function changeLanguage() {
+    let oriURL = window.location.href;
+    if (oriURL.endsWith('/')) {
+        oriURL += 'index.html';
+    };
+    let pageName = oriURL.split('/').pop();
+
+    if (pageName == 'xin-wen.html') {
+        var targetUrl = oriURL.replace(pageName, 'news.html');
+    }
+    else if (pageName == 'news.html') {
+        var targetUrl = oriURL.replace(pageName, 'xin-wen.html');
+    }
+    else if(pageName.startsWith('en-')){
+        var targetUrl = oriURL.replace(pageName, pageName.slice(3));
+    } else {
+        var targetUrl = oriURL.replace(pageName, 'en-'+pageName);
+    };
+    window.location.href = targetUrl;
+}
+</script>
 </html>

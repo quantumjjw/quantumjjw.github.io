@@ -18,5 +18,5 @@ CATEGORIES_SAVE_AS = URL_PRE + 'categories.html'
 TAGS_SAVE_AS = URL_PRE + 'tags.html'
 ARTICLE_URL = URL_PRE + "{slug}.html"
 ARTICLE_SAVE_AS = URL_PRE + "{slug}.html"
-PAGE_URL = URL_PRE + 'pages/{slug}'
-PAGE_SAVE_AS = URL_PRE + 'pages/{slug}.html'
+PAGE_URL = 'pages/' + URL_PRE + '{slug}'
+PAGE_SAVE_AS = 'pages/' + URL_PRE + '{slug}.html'
