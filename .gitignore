@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+/**/#*#
+*.csv
+*.jpg
+# docs/_build/
+
+/build/
+*.egg-info/
+/dist/
+
+*.log
+
+# for MacOS
+.DS_Store
