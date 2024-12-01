@@ -1,9 +1,10 @@
 AUTHOR = 'JJW'
-SITENAME = 'Quantum JJW'
+SITENAME = 'SPIN J'
 SITEURL = ""
 
 PATH = "content"
 OUTPUT_PATH = 'docs'
+STATIC_PATHS = ['.']
 
 TIMEZONE = 'Asia/Shanghai'
 
